@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <title>Paulo Machado</title>
+    </head>
+    <style>
+        #json {
+            font-size: 4vw;
+        }
+        @media only screen and (min-width: 768px) {
+            #json {
+                font-size: 12px;
+            }
+        }
+    </style>
+    <script type="module">
+        import profile from './profile.json' assert { type: "json" };
+        profile.updated_at = new Date().toISOString()
+        const jsonElement =  document.getElementById("json")
+        jsonElement.textContent = JSON.stringify(profile, undefined, 2);
+    </script>
+    <body>
+        <pre id="json"></pre>
+    </body>
+</html>
